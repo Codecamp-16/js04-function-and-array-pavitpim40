@@ -8,3 +8,5 @@
 - ผลลัพธ์สุดท้ายของ animals คืออะไร
 
 <!-- Cat Rat Fish Giraffe -->
+
+alert("Hi")
