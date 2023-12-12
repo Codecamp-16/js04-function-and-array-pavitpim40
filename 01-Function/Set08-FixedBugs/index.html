@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Ordering</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      input,
+      button {
+        margin-bottom: 10px;
+      }
+      #waiting-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .order-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Food Ordering System</h1>
+
+    <label for="order-input">Enter Order:</label>
+    <input type="text" id="order-input" />
+    <button onclick="enqueue()">Enqueue</button>
+
+    <h2>Waiting List</h2>
+    <ul id="waiting-list"></ul>
+
+    <script>
+      const waitingList = [];
+
+      function enqueue() {
+        const orderInput = document.getElementById('order-input');
+        const order = orderInput.value.trim();
+
+        waitingList.unshift(order, order);
+        renderWaitingList();
+
+        orderInput.value = '';
+      }
+
+      function renderWaitingList() {
+        const waitingListElement = document.getElementById('waiting-list');
+        waitingListElement.innerHTML = '';
+
+        waitingList.forEach((order) => {
+          const listItem = createListItem(order);
+          waitingListElement.appendChild(listItem);
+        });
+      }
+
+      function createListItem(order) {
+        const listItem = document.createElement('li');
+        listItem.className = 'order-item';
+        listItem.innerHTML = `
+        <span>${order}</span>
+        <button onclick="completeOrder('${order}')">Complete Order</button>
+      `;
+        return listItem;
+      }
+
+      function completeOrder(order) {
+        const orderIndex = waitingList.indexOf(order);
+        if (orderIndex < -1) {
+          // logic for remove list
+          waitingList.splice(orderIndex, 1);
+          renderWaitingList();
+        }
+      }
+    </script>
+  </body>
+</html>

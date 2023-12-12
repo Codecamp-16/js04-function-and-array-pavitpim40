@@ -1,0 +1,3 @@
+- ให้สร้างฟังก์ชัน hasBug
+- รับ String เป็น input
+- หาก String มีข้อความว่่า "bug" (case-insensitive) ให้คืนค่าเป็น true ไม่เช่นนั้น false
