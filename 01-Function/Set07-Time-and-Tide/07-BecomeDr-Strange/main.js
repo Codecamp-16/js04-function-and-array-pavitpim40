@@ -68,8 +68,57 @@ function formatLocaleTime(monthName, date, localeTime) {
   return `${monthName} ${date}, ${localeTime}`;
 }
 
+// Input : ISOString
+// Output : [YYYY,MM,DD,HH,MM,SS] โดย HH เป็น number
+function utilizeInputToArray(now) {
+  const arr = now.split('T');
+  // arr// [ '2023-12-11', '11:49:43.203Z' ]
+
+  let date = arr[0];
+  let time = arr[1];
+
+  const arrayOutPut = [];
+
+  // Date
+  const dateArr = date.split('-'); //[ '2023', '12', '11' ]
+  arrayOutPut[0] = dateArr[0];
+  arrayOutPut[1] = dateArr[1];
+  arrayOutPut[2] = dateArr[2];
+  // Time
+  const timeArr = time.split(':');
+  let hour = timeArr[0];
+  let min = timeArr[1];
+  let sec = timeArr[2].split('.')[0];
+
+  arrayOutPut[3] = +hour;
+  arrayOutPut[4] = min;
+  arrayOutPut[5] = sec;
+  return arrayOutPut;
+}
+
+function coverTime(isoString) {
+  let utilArr = utilizeInputToArray(isoString);
+
+  // MothName
+  let monthName = convertMonth(Number(utilArr[1]));
+
+  // date
+  let date = utilArr[2];
+
+  // localeTime
+  let localeHr = convertHour(utilArr[3]);
+  let min = utilArr[4];
+  let sec = utilArr[5];
+  let localeTime = `${localeHr}:${min}:${sec}`;
+
+  let result = formatLocaleTime(monthName, date, localeTime);
+  return result;
+}
+
+let r = coverTime(ISO_DATE_STRING);
+console.log(r);
 // ส่งออก function
-module.exports = {
-  convertMonth,
-  convertHour,
-};
+// module.exports = {
+//   convertMonth,
+//   convertHour,
+// };
