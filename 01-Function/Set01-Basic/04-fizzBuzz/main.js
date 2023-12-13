@@ -1,5 +1,8 @@
 function fizzBuzz(num) {
-  // write code here
+  return num;
 }
 
 module.exports = { fizzBuzz };
+for (let i = 0; i < 3; i++) {
+  console.log('#\n');
+}

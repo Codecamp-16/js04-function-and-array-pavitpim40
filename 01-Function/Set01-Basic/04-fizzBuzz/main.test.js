@@ -1,4 +1,4 @@
-const { fizzBuzz } = require('../03-returnSomething/main');
+const { fizzBuzz } = require('./main');
 
 // generate test for 20 test cases
 
