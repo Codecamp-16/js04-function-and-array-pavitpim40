@@ -1,10 +1,17 @@
-ผลลัพธ์ในบรรทัดที่มี * มีค่าเป็นอะไรและเพราะอะไร
+ผลลัพธ์ในบรรทัดที่มี \* มีค่าเป็นอะไรและเพราะอะไร
 
 ```js
+// Global
 let name = 'John';
+
+// สร้างฟังก์ชัน
 function sayHi() {
-  alert('Hi, ' + name);
+  alert('Hi, ' + name); // name == Global
 }
+
+// Reassign Global
 name = 'Pete';
-sayHi(); // *
+
+// Call Function
+sayHi(); // alert('Hi, ' + name);
 ```

@@ -22,6 +22,7 @@ S4 : Solve (each SubProblem)
 
 const ISO_DATE_STRING = '2023-12-11T10:49:43.203Z';
 
+// Pure Function (Make no SideEffect)
 function convertMonth(monthNumber) {
   switch (monthNumber) {
     case 1:
@@ -57,10 +58,13 @@ function convertMonth(monthNumber) {
 // 13 => 20
 // 16 => 23
 // 17 => 0
+// let thai_hr = 7;
 function convertHour(hour) {
-  let localHour = hour + 7;
-  if (localHour < 24) return localHour;
-  else return localHour - 24;
+  const THAI_GAP_HOUR = 7;
+  const MAXIMUM_HOUR = 24;
+  let localHour = hour + THAI_GAP_HOUR;
+  if (localHour < MAXIMUM_HOUR) return localHour;
+  else return localHour - MAXIMUM_HOUR;
 }
 
 function formatLocaleTime(monthName, date, localeTime) {
