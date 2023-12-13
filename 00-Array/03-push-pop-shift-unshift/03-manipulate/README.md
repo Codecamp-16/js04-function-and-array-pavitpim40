@@ -6,3 +6,7 @@
 - ให้เอา Snake ออกจาก animals
 - ให้เอา Dog ออกจาก animals
 - ผลลัพธ์สุดท้ายของ animals คืออะไร
+
+<!-- Cat Rat Fish Giraffe -->
+
+alert("Hi")

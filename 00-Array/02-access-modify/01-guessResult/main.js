@@ -1,12 +1,8 @@
-// const = CONSTANT (mutable ?)
-// constant = can't reassign
-// constant = same ADDRESS
-const uncleHome = ['Bicycle', 'Jar', 'Dog'];
-// uncleHome = ["Dish"]
-
+// Copy By Reference
 const arr = [1, 2, 4];
-const newArr = arr; // Copied By Reference
+const newArr = arr;
 
-arr[0] = 3;
-console.log(arr[0]);
+arr[0] = 'S';
+
 console.log(newArr[0]); // *
+console.log(arr[0]);

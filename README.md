@@ -1,3 +1,7 @@
+## 01 Function
+
+- Set1-Set6, Set7 ถึงข้อ 4
+
 ## How to write a good function
 
 ### 1.Purpose and Name:
