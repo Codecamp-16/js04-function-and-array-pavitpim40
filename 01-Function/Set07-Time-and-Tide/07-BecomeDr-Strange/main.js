@@ -53,7 +53,23 @@ function convertMonth(monthNumber) {
   }
 }
 
+// 0 => 7
+// 13 => 20
+// 16 => 23
+// 17 => 0
+function convertHour(hour) {
+  let localHour = hour + 7;
+  if (localHour < 24) return localHour;
+  else return localHour - 24;
+}
+
+function formatLocaleTime(monthName, date, localeTime) {
+  // HH:MM:SS
+  return `${monthName} ${date}, ${localeTime}`;
+}
+
 // ส่งออก function
 module.exports = {
   convertMonth,
+  convertHour,
 };
